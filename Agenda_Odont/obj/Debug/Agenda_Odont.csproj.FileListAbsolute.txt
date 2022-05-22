@@ -1,0 +1,8 @@
+C:\Users\Pedro\Desktop\Documentos\Cshar\POO_Csharp_1\Agenda_Odont\Agenda_Odont\bin\Debug\Agenda_Odont.exe.config
+C:\Users\Pedro\Desktop\Documentos\Cshar\POO_Csharp_1\Agenda_Odont\Agenda_Odont\bin\Debug\Agenda_Odont.exe
+C:\Users\Pedro\Desktop\Documentos\Cshar\POO_Csharp_1\Agenda_Odont\Agenda_Odont\bin\Debug\Agenda_Odont.pdb
+C:\Users\Pedro\Desktop\Documentos\Cshar\POO_Csharp_1\Agenda_Odont\Agenda_Odont\obj\Debug\Agenda_Odont.csproj.AssemblyReference.cache
+C:\Users\Pedro\Desktop\Documentos\Cshar\POO_Csharp_1\Agenda_Odont\Agenda_Odont\obj\Debug\Agenda_Odont.csproj.SuggestedBindingRedirects.cache
+C:\Users\Pedro\Desktop\Documentos\Cshar\POO_Csharp_1\Agenda_Odont\Agenda_Odont\obj\Debug\Agenda_Odont.csproj.CoreCompileInputs.cache
+C:\Users\Pedro\Desktop\Documentos\Cshar\POO_Csharp_1\Agenda_Odont\Agenda_Odont\obj\Debug\Agenda_Odont.exe
+C:\Users\Pedro\Desktop\Documentos\Cshar\POO_Csharp_1\Agenda_Odont\Agenda_Odont\obj\Debug\Agenda_Odont.pdb
