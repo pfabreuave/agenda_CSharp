@@ -54,5 +54,3 @@ namespace Agenda_Odont
         }
     }
 }
-//agenda con serializacion c#
-//https://www.youtube.com/watch?v=-87JZbo9pS4&t=11s

@@ -10,25 +10,10 @@ namespace Agenda_Odont
     {
         bool continuar = true;
         string val = "";
-        Paciente persona = new Paciente();
-        List<Paciente> pacientes = new List<Paciente>();
-
-        public void AgregarPaciente(Paciente persona)
-        {
-            
-            pacientes.Add(persona);
-        }
-        public void EliminarPaciente(Paciente persona)
-        {
-
-            pacientes.Remove(persona);
-        }
-   
-        public List<Paciente> ObtenerPaciente()
-        {
-            return pacientes;
-        }
+        AdmLista admlista = new AdmLista();
+        
         // menu de controle do paciente
+
         public void MenuAdm()
         {
             while (continuar)
@@ -138,9 +123,9 @@ namespace Agenda_Odont
                 }
             }
             
-            
             return val;
         }
+
         // registrar pacientes
         public void Cadastrar()
         {
@@ -149,7 +134,7 @@ namespace Agenda_Odont
             persona.nombre = Convert.ToString(Ler("Nombre:"));
             persona.cpf = Convert.ToString(Ler("CPF:"));
             persona.fec_nac = Convert.ToString(Ler("fecha de nacimiento DD/MM/AAAA:"));
-            List<Paciente> lista = ObtenerPaciente();
+            List<Paciente> lista = admlista.ObtenerPaciente();
             
             bool encontrado = false;
 
@@ -157,14 +142,21 @@ namespace Agenda_Odont
             {
                 if (lista[i].cpf == persona.cpf)
                 {
-                    Console.WriteLine("{0} \t\t {1} \t\t {2}", lista[i].nombre, lista[i].cpf, lista[i].fec_nac + " ya existe");
+                    Console.WriteLine("{0}  {1}  {2}", lista[i].nombre, lista[i].cpf, lista[i].fec_nac + " ja existe");
                     encontrado = true;
                     break;
                 }
             }
 
+            
+            if (!encontrado)
+            {
+                admlista.AgregarPaciente(persona);
+                Console.WriteLine(persona.cpf + " Adicionado con sucesso");
+            }
             Console.ReadKey();
-            if (!encontrado) AgregarPaciente(persona);
+
+
         }
 
         // excluir paciente
@@ -175,15 +167,15 @@ namespace Agenda_Odont
             Console.Write("CPF a Excluir: ");
             string cpf = Console.ReadLine();
             cpf = cpf.Insert(3, ".").Insert(7, ".").Insert(11, "-");
-            List<Paciente> lista = ObtenerPaciente();
+            List<Paciente> lista = admlista.ObtenerPaciente();
 
             for (int i = 0; i < lista.Count; i++)
             {
                 if (lista[i].cpf == cpf)
                 {
-                    Console.WriteLine("{0} \t\t {1} \t\t {2}", lista[i].nombre, lista[i].cpf, lista[i].fec_nac + " eliminado");
+                    Console.WriteLine("{0}  {1}  {2}", lista[i].nombre, lista[i].cpf, lista[i].fec_nac + " eliminado");
                    
-                    EliminarPaciente(lista[i]);
+                    admlista.EliminarPaciente(lista[i]);
                 }
             }
            
@@ -194,8 +186,8 @@ namespace Agenda_Odont
         {
             
             Console.Clear();
-            List<Paciente> lista = ObtenerPaciente();  
-            Console.WriteLine("cpf \t\t nacimiento    \tEdad   \tNombre");
+            List<Paciente> lista = admlista.ObtenerPaciente();  
+            Console.WriteLine("CPF \t\t Nacimiento    \tEdad   \tNombre");
 
             IEnumerable<Paciente> listaOrdenada = lista.OrderBy(Lista => Lista.cpf);
             foreach(Paciente paciente in listaOrdenada)
@@ -211,14 +203,14 @@ namespace Agenda_Odont
         public void ListaNome()
         {
             Console.Clear();
-            List<Paciente> lista = ObtenerPaciente();
-            Console.WriteLine("cpf \t\t fecha nacimiento \tedad \tnombre");
+            List<Paciente> lista = admlista.ObtenerPaciente();
+            Console.WriteLine("CPF \t\t Nacimiento    \tEdad   \tNombre");
             IEnumerable<Paciente> listaOrdenada = lista.OrderBy(Lista => Lista.nombre);
             foreach (Paciente paciente in listaOrdenada)
             {
                 string ed = CalcEdad(paciente.fec_nac);
                 int edad = Convert.ToInt32(ed);
-                Console.WriteLine(paciente.cpf + "\t " + paciente.fec_nac + "\t\t" + edad + "\t" + paciente.nombre);
+                Console.WriteLine(paciente.cpf + "\t " + paciente.fec_nac + "\t" + edad + "\t" + paciente.nombre);
             }
             Console.ReadKey();
         }

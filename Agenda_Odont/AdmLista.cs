@@ -13,15 +13,10 @@ namespace Agenda_Odont
 
         public void AgregarPaciente(Paciente persona)
         {
-            Console.WriteLine("llego aqui " + persona.cpf);
-      
-            Console.ReadKey();
             pacientes.Add(persona);
-            
         }
         public void EliminarPaciente(Paciente persona)
         {
-
             pacientes.Remove(persona);
         }
         public List<Paciente> ObtenerPaciente()
