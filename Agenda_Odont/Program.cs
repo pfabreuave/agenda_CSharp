@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +17,20 @@ namespace Agenda_Odont
             AdmPaciente adm = new AdmPaciente();
             AdmAgenda ada = new AdmAgenda();
 
+            try
+            {
+                IFormatter lformatter = new BinaryFormatter();
+                Stream lstream = new FileStream("pacientes.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+                adm = (AdmPaciente)lformatter.Deserialize(lstream);
+                lstream.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+            while (continuar)
             {
                 Console.Clear();
                 Console.WriteLine("    Menu Principal");
@@ -32,12 +49,12 @@ namespace Agenda_Odont
                         ada.MenuAge();
                         break;
                     case "3":
-                        /*
+                        
                         IFormatter formatter = new BinaryFormatter();
                         Stream lstream = new FileStream("pacientes.bin", FileMode.Create, FileAccess.Write, FileShare.None);
                         formatter.Serialize(lstream, adm);
                         lstream.Close();
-                        */
+                        
                         Console.Clear();
                         Console.WriteLine(" \n\ngracias por participar en este proyecto");
                         Console.ReadLine();

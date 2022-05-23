@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Agenda_Odont
 {
+    [Serializable]
     internal class AdmLista
     {
-        Paciente persona = new Paciente();
+        //Paciente persona = new Paciente();
         List<Paciente> pacientes = new List<Paciente>();
 
         public void AgregarPaciente(Paciente persona)
@@ -23,6 +24,11 @@ namespace Agenda_Odont
         {
             return pacientes;
         }
+
+    }
+    [Serializable]
+    internal class Inv
+    {
 
     }
 }
