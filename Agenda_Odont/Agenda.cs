@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace Agenda_Odont
 {
-   
-    internal class Paciente
-
+    internal class Agenda
     {
-        public string nome;
+
         public string cpf;
-        public string fec_nac;
+        public string data;
+        public string hora;
+
     }
-
 }
-
