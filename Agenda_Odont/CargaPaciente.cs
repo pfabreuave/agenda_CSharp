@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Agenda_Odont
 {
-   
-    internal class AdmPaciente
+    internal class CargaPaciente
     {
-        //@"^\d+,\d{2}$"
+        
         bool continuar = true;
         string val = "";
         readonly AdmLista admLista = new AdmLista();
-        //Paciente persona = new Paciente();
 
         /*
          *      menu de controle do paciente
@@ -61,22 +60,62 @@ namespace Agenda_Odont
                 }
             }
         }
+        
+        bool seguir = true;
+        public void MenuAge()
+        {
+            while (seguir)
+            {
+                Console.Clear();
+                Console.WriteLine("      Agenda");
+                Console.WriteLine("      ======\n");
+                Console.WriteLine("1 - Agendar consulta");
+                Console.WriteLine("2 - Cancelar agendamento");
+                Console.WriteLine("3 - Listar agenda");
+                Console.WriteLine("4 - Voltar p / menu principal");
+                Console.Write("Elija su Opcion: ");
+                string opcion = Console.ReadLine();
+                switch (opcion)
+                {
+                    case "1":
+                        Agend_Consul();
+
+                        break;
+                    case "2":
+                        Cancela_Agenda();
+
+                        break;
+                    case "3":
+                        admLista.Lista_agenda();
+
+                        break;
+                    case "4":
+
+                        seguir = false;
+                        break;
+                    default:
+                        Console.WriteLine(" \n\n   elija una opcion valida");
+                        Console.ReadLine();
+                        break;
+                }
+            }
+        }
 
         /*
          *      captura e validação do paciente
         */
 
         public string Ler(string txt)
-        
+
         {
-            Console.Write(txt+" ");
+            Console.Write(txt + " ");
             val = Console.ReadLine();
             if (val.Length < 1)
             {
                 Console.WriteLine(" Todos os campos são obrigatórios " + txt);
                 Ler(txt);
             }
-            
+
             if (txt == "Nombre:")
             {
                 if (val.Length < 5)
@@ -104,12 +143,12 @@ namespace Agenda_Odont
                     val = val.Insert(3, ".").Insert(7, ".").Insert(11, "-");
                 }
             }
-            
+
             if (txt == "data de nascimento DD/MM/AAAA:")
             {
-                
+
                 EsFecha(val);
-               
+
                 if (EsFecha(val) == false)
                 {
                     Console.WriteLine(" data de nascimento errada " + val);
@@ -120,7 +159,7 @@ namespace Agenda_Odont
                 {
                     string ed = CalcEdad(val);
                     int edad = Convert.ToInt32(ed);
-                    
+
                     if (edad < 13)
                     {
                         Console.WriteLine(" idade deve ter mais de 13 anos e ter " + edad);
@@ -130,7 +169,86 @@ namespace Agenda_Odont
 
                 }
             }
-            
+
+            if (txt == "Agenda Data:")
+            {
+                EsFecha(val);
+                if (EsFecha(val) == false)
+                {
+                    Console.WriteLine(" data errada " + val);
+                    Console.ReadKey();
+                    Ler(txt);
+                }
+                else
+                {
+                    string fechaini;
+                    string mensaje = "";
+                    DateTime hoy = DateTime.Today;
+                    DateTime fechaini1;
+                    fechaini = val;
+                    fechaini1 = Convert.ToDateTime(fechaini, new CultureInfo("es-ES"));
+                    if (DateTime.Compare(fechaini1, hoy) < 0)
+                    {
+                        mensaje += "La fecha  debe ser igual o mayor al dia actual";
+                        Console.WriteLine(mensaje);
+                        Console.ReadKey();
+
+                        Ler(txt);
+                    }
+                }
+            }
+
+            if (txt == "Hora inicial HHMM:")
+            {
+                int result;
+                int resultd = Int32.Parse(val);
+                if (resultd < 800 || resultd > 1800)
+                {
+                    Console.WriteLine(" hora debe ser > o igual a 8 y < o igual 18 " + val);
+                    Console.ReadKey();
+                    Ler(txt);
+                }
+                else
+                {
+                    result = resultd % 100;
+                    if (result > 0)
+                    {
+                        result %= 15;
+                        if (result != 0)
+                        {
+                            Console.WriteLine(" los minutos deben ser multiplo de 15 " + val);
+                            Console.ReadKey();
+                            Ler(txt);
+                        }
+                    }
+                }
+            }
+            if (txt == "Hora final HHMM:")
+            {
+                int result;
+                int resulth = Int32.Parse(val);
+                if (resulth < 800 || resulth > 1800)
+                {
+                    Console.WriteLine(" hora debe ser > o igual a 8 y < o igual 18 " + val);
+                    Console.ReadKey();
+                    Ler(txt);
+                }
+                else
+                {
+                    result = resulth % 100;
+                    if (result > 0)
+                    {
+                        result %= 15;
+                        if (result != 0)
+                        {
+                            Console.WriteLine(" los minutos deben ser multiplo de 15 " + val);
+                            Console.ReadKey();
+                            Ler(txt);
+                        }
+                    }
+                }
+            }
+
             return val;
         }
 
@@ -142,11 +260,26 @@ namespace Agenda_Odont
         {
 
             Console.Clear();
-            Paciente persona = new Paciente();
-            persona.nome = Convert.ToString(Ler("Nome:"));
-            persona.cpf = Convert.ToString(Ler("CPF:"));
-            persona.fec_nac = Convert.ToString(Ler("data de nascimento DD/MM/AAAA:"));
+            Paciente persona = new Paciente
+            {
+                Nome = Convert.ToString(Ler("Nome:")),
+                Cpf = Convert.ToString(Ler("CPF:")),
+                Fec_Nac = Convert.ToString(Ler("data de nascimento DD/MM/AAAA:"))
+            };
             admLista.AgregarPaciente(persona);
+        }
+        public void Agend_Consul()
+        {
+
+            Console.Clear();
+            Paciente persona = new Paciente
+            {
+                Cpf = Convert.ToString(Ler("CPF:")),
+                Data = Convert.ToString(Ler("Agenda Data:")),
+                Hora = Convert.ToString(Ler("Hora inicial HHMM:")),
+                Horah = Convert.ToString(Ler("Hora Final:"))
+            };
+            admLista.AgregarAgenda(persona);
         }
 
         /*
@@ -159,11 +292,18 @@ namespace Agenda_Odont
             Paciente persona = new Paciente();
             Console.Write("CPF a Excluir: ");
             string cpf = Console.ReadLine();
-            persona.cpf = cpf.Insert(3, ".").Insert(7, ".").Insert(11, "-");
+            persona.Cpf = cpf.Insert(3, ".").Insert(7, ".").Insert(11, "-");
             admLista.EliminarPaciente(persona);
         }
 
-
+        public void Cancela_Agenda()
+        {
+            Paciente persona = new Paciente();
+            Console.Write("CPF a Excluir: ");
+            string cpf = Console.ReadLine();
+            persona.Cpf = cpf.Insert(3, ".").Insert(7, ".").Insert(11, "-");
+            admLista.EliminarAgenda(persona);
+        }
 
         /*
          *      validação CPF
@@ -249,4 +389,3 @@ namespace Agenda_Odont
         }
     }
 }
-

@@ -15,12 +15,7 @@ namespace Agenda_Odont
         static void Main(string[] args)
         {
             bool continuar = true;
-            AdmPaciente adm = new AdmPaciente();
-            AdmAgenda ada = new AdmAgenda();
-            AdmLista admLista = new AdmLista();
-            
-           
-            
+            CargaPaciente adm = new CargaPaciente();
             while (continuar)
             {
                 Console.Clear();
@@ -33,12 +28,11 @@ namespace Agenda_Odont
                 string opcion = Console.ReadLine();
                 switch (opcion)
                 {
-                    
                     case "1":
                         adm.MenuAdm();
                         break;
                     case "2":
-                        ada.MenuAge();
+                        adm.MenuAge();
                         break;
                     case "3":
                         
@@ -51,8 +45,6 @@ namespace Agenda_Odont
                         Console.WriteLine(" \n\n   elija una opcion valida");
                         Console.ReadLine();
                         break;
-
-
                 }
             }
         }

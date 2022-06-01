@@ -43,11 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdmAgenda.cs" />
     <Compile Include="AdmLista.cs" />
-    <Compile Include="AdmListage.cs" />
-    <Compile Include="AdmPaciente.cs" />
-    <Compile Include="Agenda.cs" />
+    <Compile Include="CargaPaciente.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
