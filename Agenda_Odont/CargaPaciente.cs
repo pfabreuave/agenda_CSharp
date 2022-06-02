@@ -9,7 +9,6 @@ namespace Agenda_Odont
 {
     internal class CargaPaciente
     {
-        
         bool continuar = true;
         string val = "";
         readonly AdmLista admLista = new AdmLista();
@@ -94,7 +93,7 @@ namespace Agenda_Odont
                         seguir = false;
                         break;
                     default:
-                        Console.WriteLine(" \n\n   elija una opcion valida");
+                        Console.WriteLine(" \n\n   Escolha uma opção válida");
                         Console.ReadLine();
                         break;
                 }
@@ -116,7 +115,7 @@ namespace Agenda_Odont
                 Ler(txt);
             }
 
-            if (txt == "Nombre:")
+            if (txt == "Nome:")
             {
                 if (val.Length < 5)
                 {
@@ -192,7 +191,6 @@ namespace Agenda_Odont
                         mensaje += "La fecha  debe ser igual o mayor al dia actual";
                         Console.WriteLine(mensaje);
                         Console.ReadKey();
-
                         Ler(txt);
                     }
                 }
@@ -204,7 +202,7 @@ namespace Agenda_Odont
                 int resultd = Int32.Parse(val);
                 if (resultd < 800 || resultd > 1800)
                 {
-                    Console.WriteLine(" hora debe ser > o igual a 8 y < o igual 18 " + val);
+                    Console.WriteLine(" hora deve ser maior ou igual a 8 e menor ou igual a 18 " + val);
                     Console.ReadKey();
                     Ler(txt);
                 }
@@ -216,7 +214,7 @@ namespace Agenda_Odont
                         result %= 15;
                         if (result != 0)
                         {
-                            Console.WriteLine(" los minutos deben ser multiplo de 15 " + val);
+                            Console.WriteLine(" os minutos devem ser um múltiplo de 15 não superior a 45 " + val);
                             Console.ReadKey();
                             Ler(txt);
                         }
@@ -229,7 +227,7 @@ namespace Agenda_Odont
                 int resulth = Int32.Parse(val);
                 if (resulth < 800 || resulth > 1800)
                 {
-                    Console.WriteLine(" hora debe ser > o igual a 8 y < o igual 18 " + val);
+                    Console.WriteLine(" hora deve ser maior ou igual a 8 e menor ou igual a 18 " + val);
                     Console.ReadKey();
                     Ler(txt);
                 }
@@ -241,7 +239,7 @@ namespace Agenda_Odont
                         result %= 15;
                         if (result != 0)
                         {
-                            Console.WriteLine(" los minutos deben ser multiplo de 15 " + val);
+                            Console.WriteLine(" os minutos devem ser um múltiplo de 15 não superior a 45 " + val);
                             Console.ReadKey();
                             Ler(txt);
                         }
@@ -270,14 +268,13 @@ namespace Agenda_Odont
         }
         public void Agend_Consul()
         {
-
             Console.Clear();
             Paciente persona = new Paciente
             {
                 Cpf = Convert.ToString(Ler("CPF:")),
                 Data = Convert.ToString(Ler("Agenda Data:")),
                 Hora = Convert.ToString(Ler("Hora inicial HHMM:")),
-                Horah = Convert.ToString(Ler("Hora Final:"))
+                Horah = Convert.ToString(Ler("Hora Final HHMM:"))
             };
             admLista.AgregarAgenda(persona);
         }

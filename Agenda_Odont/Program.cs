@@ -14,7 +14,9 @@ namespace Agenda_Odont
     {
         static void Main(string[] args)
         {
+
             bool continuar = true;
+           
             CargaPaciente adm = new CargaPaciente();
             while (continuar)
             {
@@ -37,12 +39,12 @@ namespace Agenda_Odont
                     case "3":
                         
                         Console.Clear();
-                        Console.WriteLine(" \n\ngracias por participar en este proyecto");
+                        Console.WriteLine(" \n\nObrigado por participar deste projeto");
                         Console.ReadLine();
                         continuar = false;
                         break;
                     default:
-                        Console.WriteLine(" \n\n   elija una opcion valida");
+                        Console.WriteLine(" \n\n   escolha uma opção válida");
                         Console.ReadLine();
                         break;
                 }

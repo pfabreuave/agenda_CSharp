@@ -9,8 +9,9 @@ namespace Agenda_Odont
     internal class AdmLista
     {
         public List<Paciente> pacientes = new List<Paciente>();
-        int i = 0;
 
+        int i = 0;
+        
         /*
          *      Os pacientes são adicionados à lista
         */
@@ -33,6 +34,15 @@ namespace Agenda_Odont
                 pacientes.Add (persona);
                 Console.WriteLine(persona.Cpf + " Adicionado con sucesso");
             }
+            if (pacientes.Count == 1)
+            {
+                pacientes.Add(new Paciente() { Nome = "ADRIANA SAMPAIO", Cpf = "10907926894", Fec_Nac = "12/02/1989", Data = "07/07/2022", Hora = "1400", Horah = "1530" });
+                pacientes.Add(new Paciente() { Nome = "CLAYTON DIVINO BOCH", Cpf = "10723347808", Fec_Nac = "16/08/1978" });
+                pacientes.Add(new Paciente() { Nome = "ALINE NUNES", Cpf = "27672903829", Fec_Nac = "18/06/2001" });
+                pacientes.Add(new Paciente() { Nome = "JOSÉ ROBERTO", Cpf = "92848419172", Fec_Nac = "15/07/1989", Data = "05/08/2022", Hora = "1500", Horah = "1630" });
+
+            }
+            
             Console.ReadKey();
         }
         public void AgregarAgenda(Paciente persona)
