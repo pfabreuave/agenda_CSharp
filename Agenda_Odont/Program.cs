@@ -14,9 +14,7 @@ namespace Agenda_Odont
     {
         static void Main(string[] args)
         {
-
             bool continuar = true;
-           
             CargaPaciente adm = new CargaPaciente();
             while (continuar)
             {
@@ -37,7 +35,6 @@ namespace Agenda_Odont
                         adm.MenuAge();
                         break;
                     case "3":
-                        
                         Console.Clear();
                         Console.WriteLine(" \n\nObrigado por participar deste projeto");
                         Console.ReadLine();

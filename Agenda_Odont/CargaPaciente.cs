@@ -10,6 +10,7 @@ namespace Agenda_Odont
     internal class CargaPaciente
     {
         bool continuar = true;
+        bool seguir = true;
         string val = "";
         readonly AdmLista admLista = new AdmLista();
 
@@ -39,15 +40,12 @@ namespace Agenda_Odont
                         break;
                     case "2":
                         ExcluirPac();
-
                         break;
                     case "3":
                         admLista.ListaCpf();
-
                         break;
                     case "4":
                         admLista.ListaNome();
-
                         break;
                     case "5":
                         continuar = false;
@@ -60,7 +58,6 @@ namespace Agenda_Odont
             }
         }
         
-        bool seguir = true;
         public void MenuAge()
         {
             while (seguir)
@@ -73,23 +70,19 @@ namespace Agenda_Odont
                 Console.WriteLine("3 - Listar agenda");
                 Console.WriteLine("4 - Voltar p / menu principal");
                 Console.Write("Elija su Opcion: ");
-                string opcion = Console.ReadLine();
-                switch (opcion)
+                string opcion1 = Console.ReadLine();
+                switch (opcion1)
                 {
                     case "1":
-                        Agend_Consul();
-
+                        Agenda_Consulta();
                         break;
                     case "2":
                         Cancela_Agenda();
-
                         break;
                     case "3":
                         admLista.Lista_agenda();
-
                         break;
                     case "4":
-
                         seguir = false;
                         break;
                     default:
@@ -124,7 +117,6 @@ namespace Agenda_Odont
                     Ler(txt);
                 }
             }
-
 
             if (txt == "CPF:")
             {
@@ -265,8 +257,9 @@ namespace Agenda_Odont
                 Fec_Nac = Convert.ToString(Ler("data de nascimento DD/MM/AAAA:"))
             };
             admLista.AgregarPaciente(persona);
+            
         }
-        public void Agend_Consul()
+        public void Agenda_Consulta()
         {
             Console.Clear();
             Paciente persona = new Paciente
@@ -277,6 +270,7 @@ namespace Agenda_Odont
                 Horah = Convert.ToString(Ler("Hora Final HHMM:"))
             };
             admLista.AgregarAgenda(persona);
+            
         }
 
         /*

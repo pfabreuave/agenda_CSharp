@@ -35,16 +35,25 @@ namespace Agenda_Odont
                 Console.WriteLine(persona.Cpf + " Adicionado con sucesso");
             }
             if (pacientes.Count == 1)
+
             {
-                pacientes.Add(new Paciente() { Nome = "ADRIANA SAMPAIO", Cpf = "10907926894", Fec_Nac = "12/02/1989", Data = "07/07/2022", Hora = "1400", Horah = "1530" });
-                pacientes.Add(new Paciente() { Nome = "CLAYTON DIVINO BOCH", Cpf = "10723347808", Fec_Nac = "16/08/1978" });
-                pacientes.Add(new Paciente() { Nome = "ALINE NUNES", Cpf = "27672903829", Fec_Nac = "18/06/2001" });
-                pacientes.Add(new Paciente() { Nome = "JOSÉ ROBERTO", Cpf = "92848419172", Fec_Nac = "15/07/1989", Data = "05/08/2022", Hora = "1500", Horah = "1630" });
+                /*
+                *      adicionados à lista para prueba
+                */
+                pacientes.Add(new Paciente() { Nome = "ADRIANA SAMPAIO", Cpf = "109.079.268-94", Fec_Nac = "12/02/1989", Data = "07/07/2022", Hora = "1400", Horah = "1530" });
+                pacientes.Add(new Paciente() { Nome = "CLAYTON DIVINO BOCH", Cpf = "107.233.478-08", Fec_Nac = "16/08/1978" });
+                pacientes.Add(new Paciente() { Nome = "ALINE NUNES", Cpf = "276.729.038-29", Fec_Nac = "18/06/2001" });
+                pacientes.Add(new Paciente() { Nome = "JOSÉ ROBERTO", Cpf = "928.484.191-72", Fec_Nac = "15/07/1989", Data = "05/08/2022", Hora = "1500", Horah = "1630" });
 
             }
             
             Console.ReadKey();
+            
         }
+
+        /*
+         *      Os pacientes são agendados na lista
+        */
         public void AgregarAgenda(Paciente persona)
         
         {
@@ -67,6 +76,7 @@ namespace Agenda_Odont
                 Console.WriteLine(persona.Cpf + " Paciente nao cadastrado");
             }
             Console.ReadKey();
+           
         }
 
         /*
@@ -102,9 +112,10 @@ namespace Agenda_Odont
                 if (pacientes[i].Cpf == persona.Cpf)
                 {
                     Console.WriteLine("{0}  {1}  {2}", pacientes[i].Nome, pacientes[i].Cpf, pacientes[i].Fec_Nac + " Agenda cancelada");
-                    pacientes[i].Data = "";
-                    pacientes[i].Hora = "";
-                    pacientes[i].Horah = "";
+                    pacientes[i].Data = null;
+                    pacientes[i].Hora = null;
+                    pacientes[i].Horah = null;
+                    encontrado = true;
                     break;
                 }
             }
@@ -140,7 +151,7 @@ namespace Agenda_Odont
                 else
                 {
                     Console.WriteLine("                 Agendado para: {0,2}", paciente.Data);
-                    Console.WriteLine("                 HHMM {0,2} as HHMM {1,2}\n", paciente.Hora, paciente.Hora);
+                    Console.WriteLine("                 HHMM {0,2} as HHMM {1,2}", paciente.Hora, paciente.Hora);
                 }
                 
             }
@@ -172,7 +183,7 @@ namespace Agenda_Odont
                 else
                 {
                     Console.WriteLine("                 Agendado para: {0,2}", paciente.Data);
-                    Console.WriteLine("                 HHMM {0,2} as HHMM {1,2}\n", paciente.Hora, paciente.Hora);
+                    Console.WriteLine("                 HHMM {0,2} as HHMM {1,2}", paciente.Hora, paciente.Hora);
                 }
 
             }
