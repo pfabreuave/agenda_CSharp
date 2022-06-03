@@ -266,9 +266,11 @@ namespace Agenda_Odont
             {
                 Cpf = Convert.ToString(Ler("CPF:")),
                 Data = Convert.ToString(Ler("Agenda Data:")),
-                Hora = Convert.ToString(Ler("Hora inicial HHMM:")),
-                Horah = Convert.ToString(Ler("Hora Final HHMM:"))
+                Hora = Convert.ToInt32(Ler("Hora inicial HHMM:")),
+                Horah = Convert.ToInt32(Ler("Hora Final HHMM:"))
+
             };
+            
             admLista.AgregarAgenda(persona);
             
         }

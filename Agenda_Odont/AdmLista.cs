@@ -11,6 +11,8 @@ namespace Agenda_Odont
         public List<Paciente> pacientes = new List<Paciente>();
 
         int i = 0;
+        bool encontrado;
+        string mensaje = string.Empty;
         
         /*
          *      Os pacientes são adicionados à lista
@@ -19,7 +21,7 @@ namespace Agenda_Odont
         public void AgregarPaciente(Paciente persona)
 
         {
-            bool encontrado = false;
+            encontrado = false;
             for (i = 0; i < pacientes.Count; i++)
             {
                 if (pacientes[i].Cpf == persona.Cpf)
@@ -40,11 +42,10 @@ namespace Agenda_Odont
                 /*
                 *      adicionados à lista para prueba
                 */
-                pacientes.Add(new Paciente() { Nome = "ADRIANA SAMPAIO", Cpf = "109.079.268-94", Fec_Nac = "12/02/1989", Data = "07/07/2022", Hora = "1400", Horah = "1530" });
+                pacientes.Add(new Paciente() { Nome = "ADRIANA SAMPAIO", Cpf = "109.079.268-94", Fec_Nac = "12/02/1989", Data = "07/07/2022", Hora = 1400, Horah = 1530 });
                 pacientes.Add(new Paciente() { Nome = "CLAYTON DIVINO BOCH", Cpf = "107.233.478-08", Fec_Nac = "16/08/1978" });
                 pacientes.Add(new Paciente() { Nome = "ALINE NUNES", Cpf = "276.729.038-29", Fec_Nac = "18/06/2001" });
-                pacientes.Add(new Paciente() { Nome = "JOSÉ ROBERTO", Cpf = "928.484.191-72", Fec_Nac = "15/07/1989", Data = "05/08/2022", Hora = "1500", Horah = "1630" });
-
+                pacientes.Add(new Paciente() { Nome = "JOSÉ ROBERTO", Cpf = "928.484.191-72", Fec_Nac = "15/07/1989", Data = "05/08/2022", Hora = 1500, Horah = 1630 });
             }
             
             Console.ReadKey();
@@ -58,25 +59,53 @@ namespace Agenda_Odont
         
         {
             
-            bool encontrado = false;
+            encontrado = false;
             for (i = 0; i < pacientes.Count; i++)
             {
-                if (pacientes[i].Cpf == persona.Cpf)
-                {
-                    Console.WriteLine("{0}  {1}  {2}", pacientes[i].Nome, pacientes[i].Cpf, pacientes[i].Fec_Nac + " Agenda confirmada");
-                    pacientes[i].Data = persona.Data;
-                    pacientes[i].Hora = persona.Hora;
-                    pacientes[i].Horah = persona.Horah;
-                    encontrado = true;
+                
+                if (pacientes[i].Cpf.Equals(persona.Cpf))
+                    {
+                    VerificaAgenda(persona);
                     break;
-                }
+                    }
             }
             if (!encontrado)
             {
-                Console.WriteLine(persona.Cpf + " Paciente nao cadastrado");
+                mensaje += " \n Solicitud para " + persona.Cpf + " ";
+                mensaje += "\n no es posible agendar";
+                Console.WriteLine(mensaje);
+            }
+            else
+            {
+                Console.WriteLine("{0}  {1}  {2}", pacientes[i].Nome, pacientes[i].Cpf, pacientes[i].Fec_Nac + " Agenda confirmada");
+                pacientes[i].Data = persona.Data;
+                pacientes[i].Hora = persona.Hora;
+                pacientes[i].Horah = persona.Horah;
             }
             Console.ReadKey();
-           
+            mensaje = " ";
+        }
+
+        public void VerificaAgenda(Paciente persona)
+        {
+            int h1 = persona.Hora;
+            int h2 = persona.Horah;
+            int hh1;
+            int hh2;
+            for (int j = 0; j < pacientes.Count; j++)
+
+            {
+                hh1 = pacientes[j].Hora;
+                hh2 = pacientes[j].Horah;
+                if (persona.Data == pacientes[j].Data)
+                
+                    if ((h1 >= hh1 && h1 <= hh2) || (h2 >= hh1 && h2 <= hh2))
+                    {
+                        encontrado = false;
+                        mensaje += "\n horario ocupado por " + pacientes[j].Nome;
+                        //Console.ReadKey();
+                    }
+            }
         }
 
         /*
@@ -113,8 +142,8 @@ namespace Agenda_Odont
                 {
                     Console.WriteLine("{0}  {1}  {2}", pacientes[i].Nome, pacientes[i].Cpf, pacientes[i].Fec_Nac + " Agenda cancelada");
                     pacientes[i].Data = null;
-                    pacientes[i].Hora = null;
-                    pacientes[i].Horah = null;
+                    pacientes[i].Hora = 0;
+                    pacientes[i].Horah = 0;
                     encontrado = true;
                     break;
                 }
@@ -153,7 +182,6 @@ namespace Agenda_Odont
                     Console.WriteLine("                 Agendado para: {0,2}", paciente.Data);
                     Console.WriteLine("                 HHMM {0,2} as HHMM {1,2}", paciente.Hora, paciente.Hora);
                 }
-                
             }
             Console.WriteLine("---------------------------------------------------------------------------");
             Console.ReadKey();
