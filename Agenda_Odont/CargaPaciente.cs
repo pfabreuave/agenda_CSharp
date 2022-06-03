@@ -9,8 +9,8 @@ namespace Agenda_Odont
 {
     internal class CargaPaciente
     {
-        bool continuar = true;
-        bool seguir = true;
+        bool menu_Paciente = true;
+        bool menu_Agenda = true;
         string val = "";
         readonly AdmLista admLista = new AdmLista();
 
@@ -20,7 +20,7 @@ namespace Agenda_Odont
 
         public void MenuAdm()
         {
-            while (continuar)
+            while (menu_Paciente)
             {
                 Console.Clear();
                 Console.WriteLine("    Menu do Cadastro de Pacientes");
@@ -31,8 +31,8 @@ namespace Agenda_Odont
                 Console.WriteLine("4 - Listar pacientes(ordenado por nome");
                 Console.WriteLine("5 - Voltar p / menu ");
                 Console.Write("Elija su Opcion: ");
-                string opcion = Console.ReadLine();
-                switch (opcion)
+                string opcion_Paciente = Console.ReadLine();
+                switch (opcion_Paciente)
                 {
                     case "1":
                         Cadastrar();
@@ -48,7 +48,8 @@ namespace Agenda_Odont
                         admLista.ListaNome();
                         break;
                     case "5":
-                        continuar = false;
+                        menu_Paciente = false;
+                       
                         break;
                     default:
                         Console.WriteLine(" \n\n   Escolha uma opção válida");
@@ -60,7 +61,7 @@ namespace Agenda_Odont
         
         public void MenuAge()
         {
-            while (seguir)
+            while (menu_Agenda)
             {
                 Console.Clear();
                 Console.WriteLine("      Agenda");
@@ -70,8 +71,8 @@ namespace Agenda_Odont
                 Console.WriteLine("3 - Listar agenda");
                 Console.WriteLine("4 - Voltar p / menu principal");
                 Console.Write("Elija su Opcion: ");
-                string opcion1 = Console.ReadLine();
-                switch (opcion1)
+                string opcion_Agenda = Console.ReadLine();
+                switch (opcion_Agenda)
                 {
                     case "1":
                         Agenda_Consulta();
@@ -83,7 +84,8 @@ namespace Agenda_Odont
                         admLista.Lista_agenda();
                         break;
                     case "4":
-                        seguir = false;
+                        menu_Agenda = false;
+                        
                         break;
                     default:
                         Console.WriteLine(" \n\n   Escolha uma opção válida");

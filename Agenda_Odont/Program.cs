@@ -14,9 +14,9 @@ namespace Agenda_Odont
     {
         static void Main(string[] args)
         {
-            bool continuar = true;
+            bool cont_Prog = true;
             CargaPaciente adm = new CargaPaciente();
-            while (continuar)
+            while (cont_Prog)
             {
                 Console.Clear();
                 Console.WriteLine("    Menu Principal");
@@ -25,8 +25,8 @@ namespace Agenda_Odont
                 Console.WriteLine("2-Agenda");
                 Console.WriteLine("3-Fim");
                 Console.Write("Elija su Opcion: ");
-                string opcion = Console.ReadLine();
-                switch (opcion)
+                string opcion_prog = Console.ReadLine();
+                switch (opcion_prog)
                 {
                     case "1":
                         adm.MenuAdm();
@@ -38,7 +38,7 @@ namespace Agenda_Odont
                         Console.Clear();
                         Console.WriteLine(" \n\nObrigado por participar deste projeto");
                         Console.ReadLine();
-                        continuar = false;
+                        cont_Prog = false;
                         break;
                     default:
                         Console.WriteLine(" \n\n   escolha uma opção válida");
