@@ -50,6 +50,7 @@ namespace Agenda_Odont
             
             Console.ReadKey();
             
+            
         }
 
         /*
@@ -83,6 +84,7 @@ namespace Agenda_Odont
             }
             Console.ReadKey();
             mensaje = " ";
+            
         }
 
         public void VerificaAgenda(Paciente persona)
@@ -218,6 +220,9 @@ namespace Agenda_Odont
             Console.WriteLine("---------------------------------------------------------------------------");
             Console.ReadKey();
         }
+        /*
+         *      lista de agendamentos classificados pela DATA
+        */
         public void Lista_agenda()
         {
             Console.Clear();

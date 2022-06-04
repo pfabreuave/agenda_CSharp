@@ -12,8 +12,10 @@ namespace Agenda_Odont
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
+            int opcion_prog;
             bool cont_Prog = true;
             CargaPaciente adm = new CargaPaciente();
             while (cont_Prog)
@@ -25,16 +27,17 @@ namespace Agenda_Odont
                 Console.WriteLine("2-Agenda");
                 Console.WriteLine("3-Fim");
                 Console.Write("Elija su Opcion: ");
-                string opcion_prog = Console.ReadLine();
+                opcion_prog = Convert.ToInt32(Console.ReadLine());
+
                 switch (opcion_prog)
                 {
-                    case "1":
+                    case (1):
                         adm.MenuAdm();
                         break;
-                    case "2":
+                    case (2):
                         adm.MenuAge();
                         break;
-                    case "3":
+                    case (3):
                         Console.Clear();
                         Console.WriteLine(" \n\nObrigado por participar deste projeto");
                         Console.ReadLine();

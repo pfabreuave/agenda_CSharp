@@ -24,32 +24,30 @@ namespace Agenda_Odont
             {
                 Console.Clear();
                 Console.WriteLine("    Menu do Cadastro de Pacientes");
-                Console.WriteLine("    =============================\n");
+                Console.WriteLine("    =============================");
                 Console.WriteLine("1 - Cadastrar novo paciente");
                 Console.WriteLine("2 - Excluir paciente");
                 Console.WriteLine("3 - Listar pacientes(ordenado por CPF");
                 Console.WriteLine("4 - Listar pacientes(ordenado por nome");
                 Console.WriteLine("5 - Voltar p / menu ");
                 Console.Write("Elija su Opcion: ");
-                string opcion_Paciente = Console.ReadLine();
+                int opcion_Paciente = Convert.ToInt32(Console.ReadLine());
                 switch (opcion_Paciente)
                 {
-                    case "1":
+                    case (1):
                         Cadastrar();
-
                         break;
-                    case "2":
-                        ExcluirPac();
+                    case (2):
+                        Excluir_Paciente();
                         break;
-                    case "3":
+                    case (3):
                         admLista.ListaCpf();
                         break;
-                    case "4":
+                    case (4):
                         admLista.ListaNome();
                         break;
-                    case "5":
+                    case (5):
                         menu_Paciente = false;
-                       
                         break;
                     default:
                         Console.WriteLine(" \n\n   Escolha uma opção válida");
@@ -65,27 +63,27 @@ namespace Agenda_Odont
             {
                 Console.Clear();
                 Console.WriteLine("      Agenda");
-                Console.WriteLine("      ======\n");
+                Console.WriteLine("      ======");
                 Console.WriteLine("1 - Agendar consulta");
                 Console.WriteLine("2 - Cancelar agendamento");
                 Console.WriteLine("3 - Listar agenda");
                 Console.WriteLine("4 - Voltar p / menu principal");
                 Console.Write("Elija su Opcion: ");
-                string opcion_Agenda = Console.ReadLine();
+                int opcion_Agenda = Convert.ToInt32(Console.ReadLine());
+
                 switch (opcion_Agenda)
                 {
-                    case "1":
+                    case (1):
                         Agenda_Consulta();
                         break;
-                    case "2":
+                    case (2):
                         Cancela_Agenda();
                         break;
-                    case "3":
+                    case (3):
                         admLista.Lista_agenda();
                         break;
-                    case "4":
+                    case (4):
                         menu_Agenda = false;
-                        
                         break;
                     default:
                         Console.WriteLine(" \n\n   Escolha uma opção válida");
@@ -275,13 +273,14 @@ namespace Agenda_Odont
             
             admLista.AgregarAgenda(persona);
             
+            
         }
 
         /*
          *      excluir paciente
         */
 
-        public void ExcluirPac()
+        public void Excluir_Paciente()
         {
             Console.Clear();
             Paciente persona = new Paciente();
