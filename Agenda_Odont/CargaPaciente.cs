@@ -5,8 +5,6 @@ namespace Agenda_Odont
 {
     internal class CargaPaciente
     {
-        bool menu_Paciente = true;
-        bool menu_Agenda = true;
         string valores = "";
         readonly AdmLista admLista = new AdmLista();
 
@@ -18,7 +16,6 @@ namespace Agenda_Odont
         {
             string opcion_Paciente;
             do
-            //while (menu_Paciente)
             {
                 
                 Console.Clear();
@@ -50,7 +47,6 @@ namespace Agenda_Odont
                         admLista.ListaNome();
                         break;
                     case ("5"):
-                        //menu_Paciente = false;
                         break;
                     default:
                         Console.WriteLine(" \n\n\t\t\tEscolha uma opção válida");
@@ -65,7 +61,6 @@ namespace Agenda_Odont
         {
             string opcion_Agenda;
             do
-            //while (menu_Agenda)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -301,6 +296,7 @@ namespace Agenda_Odont
 
         public void Cancela_Agenda()
         {
+            Console.Clear();
             Paciente persona = new Paciente();
             Console.Write("CPF a Excluir: ");
             string cpf = Console.ReadLine();
