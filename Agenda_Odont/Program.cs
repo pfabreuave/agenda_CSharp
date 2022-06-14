@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Agenda_Odont
@@ -13,42 +6,44 @@ namespace Agenda_Odont
     internal class Program
     {
 
+
         static void Main(string[] args)
         {
-            int opcion_prog;
-            bool cont_Prog = true;
+            string opcion_prog;
             CargaPaciente adm = new CargaPaciente();
-            while (cont_Prog)
+            do
             {
                 Console.Clear();
-                Console.WriteLine("    Menu Principal");
-                Console.WriteLine("    ==============");
-                Console.WriteLine("1-Cadastro de pacientes");
-                Console.WriteLine("2-Agenda");
-                Console.WriteLine("3-Fim");
-                Console.Write("Elija su Opcion: ");
-                opcion_prog = Convert.ToInt32(Console.ReadLine());
-
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ CONSULTÓRIO ODONTOLÓGICO ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n" +
+                                  "\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ PRINCIPAIS OPÇÕES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("\n\t\t\t1 - Cadastro de pacientes" +
+                                  "\n\t\t\t2-Agenda" +
+                                  "\n\t\t\t3-Fim");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("\n\t\t\tElija su Opcion: ");
+                opcion_prog = Convert.ToString(Console.ReadLine());
+                Console.ForegroundColor = ConsoleColor.White;
                 switch (opcion_prog)
                 {
-                    case (1):
+                    case ("1"):
                         adm.MenuAdm();
                         break;
-                    case (2):
+                    case ("2"):
                         adm.MenuAge();
                         break;
-                    case (3):
-                        Console.Clear();
-                        Console.WriteLine(" \n\nObrigado por participar deste projeto");
+                    case ("3"):
+                        Console.WriteLine(" \n\n\t\t\tObrigado por participar deste projeto");
                         Console.ReadLine();
-                        cont_Prog = false;
                         break;
                     default:
-                        Console.WriteLine(" \n\n   escolha uma opção válida");
+                        Console.WriteLine(" \n\n\t\t\tescolha uma opção válida");
                         Console.ReadLine();
                         break;
                 }
             }
+            while (opcion_prog != "3");
         }
     }
 }

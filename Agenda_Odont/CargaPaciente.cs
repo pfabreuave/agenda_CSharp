@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Agenda_Odont
 {
@@ -11,7 +7,7 @@ namespace Agenda_Odont
     {
         bool menu_Paciente = true;
         bool menu_Agenda = true;
-        string val = "";
+        string valores = "";
         readonly AdmLista admLista = new AdmLista();
 
         /*
@@ -22,35 +18,40 @@ namespace Agenda_Odont
         {
             while (menu_Paciente)
             {
+                
                 Console.Clear();
-                Console.WriteLine("    Menu do Cadastro de Pacientes");
-                Console.WriteLine("    =============================");
-                Console.WriteLine("1 - Cadastrar novo paciente");
-                Console.WriteLine("2 - Excluir paciente");
-                Console.WriteLine("3 - Listar pacientes(ordenado por CPF");
-                Console.WriteLine("4 - Listar pacientes(ordenado por nome");
-                Console.WriteLine("5 - Voltar p / menu ");
-                Console.Write("Elija su Opcion: ");
-                int opcion_Paciente = Convert.ToInt32(Console.ReadLine());
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ CADASTRO DE PACIENES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n" +
+                                  "\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ PRINCIPAIS OPÇÕES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("\n\t\t\t1 - Cadastrar novo paciente" +
+                                   "\n\t\t\t2 - Excluir paciente" +
+                                   "\n\t\t\t3 - Listar pacientes(ordenado por CPF)" +
+                                   "\n\t\t\t4 - Listar pacientes(ordenado por nome)" +
+                                   "\n\t\t\t5 - Voltar p / menu ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("\n\t\tElija su Opcion: ");
+                string opcion_Paciente = Convert.ToString(Console.ReadLine());
+                Console.ForegroundColor = ConsoleColor.White;
                 switch (opcion_Paciente)
                 {
-                    case (1):
+                    case ("1"):
                         Cadastrar();
                         break;
-                    case (2):
+                    case ("2"):
                         Excluir_Paciente();
                         break;
-                    case (3):
+                    case ("3"):
                         admLista.ListaCpf();
                         break;
-                    case (4):
+                    case ("4"):
                         admLista.ListaNome();
                         break;
-                    case (5):
+                    case ("5"):
                         menu_Paciente = false;
                         break;
                     default:
-                        Console.WriteLine(" \n\n   Escolha uma opção válida");
+                        Console.WriteLine(" \n\n\t\t\tEscolha uma opção válida");
                         Console.ReadLine();
                         break;
                 }
@@ -62,31 +63,35 @@ namespace Agenda_Odont
             while (menu_Agenda)
             {
                 Console.Clear();
-                Console.WriteLine("      Agenda");
-                Console.WriteLine("      ======");
-                Console.WriteLine("1 - Agendar consulta");
-                Console.WriteLine("2 - Cancelar agendamento");
-                Console.WriteLine("3 - Listar agenda");
-                Console.WriteLine("4 - Voltar p / menu principal");
-                Console.Write("Elija su Opcion: ");
-                int opcion_Agenda = Convert.ToInt32(Console.ReadLine());
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ AGENDAMENTO DE PACIENES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n" +
+                                  "\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ PRINCIPAIS OPÇÕES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("\n\t\t\t1 - Agendar consulta" +
+                                   "\n\t\t\t2 - Cancelar agendamento" +
+                                   "\n\t\t\t3 - Listar agenda" +
+                                   "\n\t\t\t4 - Voltar p / menu principal");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("\n\t\t\tElija su Opcion: ");
+                string opcion_Agenda = Convert.ToString(Console.ReadLine());
+                Console.ForegroundColor = ConsoleColor.White;
 
                 switch (opcion_Agenda)
                 {
-                    case (1):
+                    case ("1"):
                         Agenda_Consulta();
                         break;
-                    case (2):
+                    case ("2"):
                         Cancela_Agenda();
                         break;
-                    case (3):
+                    case ("3"):
                         admLista.Lista_agenda();
                         break;
-                    case (4):
+                    case ("4"):
                         menu_Agenda = false;
                         break;
                     default:
-                        Console.WriteLine(" \n\n   Escolha uma opção válida");
+                        Console.WriteLine(" \n\n\t\t\t   Escolha uma opção válida");
                         Console.ReadLine();
                         break;
                 }
@@ -101,8 +106,8 @@ namespace Agenda_Odont
 
         {
             Console.Write(txt + " ");
-            val = Console.ReadLine();
-            if (val.Length < 1)
+            valores = Console.ReadLine();
+            if (valores.Length < 1)
             {
                 Console.WriteLine(" Todos os campos são obrigatórios " + txt);
                 Ler(txt);
@@ -110,9 +115,9 @@ namespace Agenda_Odont
 
             if (txt == "Nome:")
             {
-                if (val.Length < 5)
+                if (valores.Length < 5)
                 {
-                    Console.WriteLine(" O nome do paciente deve ter mais de 4 dígitos " + val.Length);
+                    Console.WriteLine(" O nome do paciente deve ter mais de 4 dígitos " + valores.Length);
                     Console.ReadKey();
                     Ler(txt);
                 }
@@ -121,34 +126,34 @@ namespace Agenda_Odont
             if (txt == "CPF:")
             {
 
-                ValidaCPF(val);
+                ValidaCPF(valores);
 
-                if (ValidaCPF(val) == false)
+                if (ValidaCPF(valores) == false)
                 {
-                    Console.WriteLine(" CPF errado; tente novamente " + val);
+                    Console.WriteLine(" CPF errado; tente novamente " + valores);
                     Console.ReadKey();
                     Ler(txt);
                 }
                 else
                 {
-                    val = val.Insert(3, ".").Insert(7, ".").Insert(11, "-");
+                    valores = valores.Insert(3, ".").Insert(7, ".").Insert(11, "-");
                 }
             }
 
             if (txt == "data de nascimento DD/MM/AAAA:")
             {
 
-                EsFecha(val);
+                EsFecha(valores);
 
-                if (EsFecha(val) == false)
+                if (EsFecha(valores) == false)
                 {
-                    Console.WriteLine(" data de nascimento errada " + val);
+                    Console.WriteLine(" data de nascimento errada " + valores);
                     Console.ReadKey();
                     Ler(txt);
                 }
                 else
                 {
-                    string ed = CalcEdad(val);
+                    string ed = CalcEdad(valores);
                     int edad = Convert.ToInt32(ed);
 
                     if (edad < 13)
@@ -157,16 +162,15 @@ namespace Agenda_Odont
                         Console.ReadKey();
                         Ler(txt);
                     }
-
                 }
             }
 
             if (txt == "Agenda Data:")
             {
-                EsFecha(val);
-                if (EsFecha(val) == false)
+                EsFecha(valores);
+                if (EsFecha(valores) == false)
                 {
-                    Console.WriteLine(" data errada " + val);
+                    Console.WriteLine(" data errada " + valores);
                     Console.ReadKey();
                     Ler(txt);
                 }
@@ -176,7 +180,7 @@ namespace Agenda_Odont
                     string mensaje = "";
                     DateTime hoy = DateTime.Today;
                     DateTime fechaini1;
-                    fechaini = val;
+                    fechaini = valores;
                     fechaini1 = Convert.ToDateTime(fechaini, new CultureInfo("es-ES"));
                     if (DateTime.Compare(fechaini1, hoy) < 0)
                     {
@@ -191,10 +195,10 @@ namespace Agenda_Odont
             if (txt == "Hora inicial HHMM:")
             {
                 int result;
-                int resultd = Int32.Parse(val);
+                int resultd = Int32.Parse(valores);
                 if (resultd < 800 || resultd > 1800)
                 {
-                    Console.WriteLine(" hora deve ser maior ou igual a 8 e menor ou igual a 18 " + val);
+                    Console.WriteLine(" hora deve ser maior ou igual a 8 e menor ou igual a 18 " + valores);
                     Console.ReadKey();
                     Ler(txt);
                 }
@@ -206,7 +210,7 @@ namespace Agenda_Odont
                         result %= 15;
                         if (result != 0)
                         {
-                            Console.WriteLine(" os minutos devem ser um múltiplo de 15 não superior a 45 " + val);
+                            Console.WriteLine(" os minutos devem ser um múltiplo de 15 não superior a 45 " + valores);
                             Console.ReadKey();
                             Ler(txt);
                         }
@@ -216,10 +220,10 @@ namespace Agenda_Odont
             if (txt == "Hora final HHMM:")
             {
                 int result;
-                int resulth = Int32.Parse(val);
+                int resulth = Int32.Parse(valores);
                 if (resulth < 800 || resulth > 1800)
                 {
-                    Console.WriteLine(" hora deve ser maior ou igual a 8 e menor ou igual a 18 " + val);
+                    Console.WriteLine(" hora deve ser maior ou igual a 8 e menor ou igual a 18 " + valores);
                     Console.ReadKey();
                     Ler(txt);
                 }
@@ -231,7 +235,7 @@ namespace Agenda_Odont
                         result %= 15;
                         if (result != 0)
                         {
-                            Console.WriteLine(" os minutos devem ser um múltiplo de 15 não superior a 45 " + val);
+                            Console.WriteLine(" os minutos devem ser um múltiplo de 15 não superior a 45 " + valores);
                             Console.ReadKey();
                             Ler(txt);
                         }
@@ -239,7 +243,7 @@ namespace Agenda_Odont
                 }
             }
 
-            return val;
+            return valores;
         }
 
         /*
