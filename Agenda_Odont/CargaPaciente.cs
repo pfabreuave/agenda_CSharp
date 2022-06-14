@@ -16,7 +16,9 @@ namespace Agenda_Odont
 
         public void MenuAdm()
         {
-            while (menu_Paciente)
+            string opcion_Paciente;
+            do
+            //while (menu_Paciente)
             {
                 
                 Console.Clear();
@@ -31,7 +33,7 @@ namespace Agenda_Odont
                                    "\n\t\t\t5 - Voltar p / menu ");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("\n\t\tElija su Opcion: ");
-                string opcion_Paciente = Convert.ToString(Console.ReadLine());
+                opcion_Paciente = Convert.ToString(Console.ReadLine());
                 Console.ForegroundColor = ConsoleColor.White;
                 switch (opcion_Paciente)
                 {
@@ -48,7 +50,7 @@ namespace Agenda_Odont
                         admLista.ListaNome();
                         break;
                     case ("5"):
-                        menu_Paciente = false;
+                        //menu_Paciente = false;
                         break;
                     default:
                         Console.WriteLine(" \n\n\t\t\tEscolha uma opção válida");
@@ -56,11 +58,14 @@ namespace Agenda_Odont
                         break;
                 }
             }
+            while (opcion_Paciente != "5") ;
         }
         
         public void MenuAge()
         {
-            while (menu_Agenda)
+            string opcion_Agenda;
+            do
+            //while (menu_Agenda)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -73,7 +78,7 @@ namespace Agenda_Odont
                                    "\n\t\t\t4 - Voltar p / menu principal");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("\n\t\t\tElija su Opcion: ");
-                string opcion_Agenda = Convert.ToString(Console.ReadLine());
+                opcion_Agenda = Convert.ToString(Console.ReadLine());
                 Console.ForegroundColor = ConsoleColor.White;
 
                 switch (opcion_Agenda)
@@ -88,7 +93,6 @@ namespace Agenda_Odont
                         admLista.Lista_agenda();
                         break;
                     case ("4"):
-                        menu_Agenda = false;
                         break;
                     default:
                         Console.WriteLine(" \n\n\t\t\t   Escolha uma opção válida");
@@ -96,6 +100,7 @@ namespace Agenda_Odont
                         break;
                 }
             }
+            while (opcion_Agenda != "4");
         }
 
         /*
