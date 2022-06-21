@@ -164,8 +164,8 @@ namespace Agenda_Odont
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\n\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ REGISTRO DE PACIENES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n" +
-                                "\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  POR  CPF  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+            Console.WriteLine("\n\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ REGISTRO DE PACIENTES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n" +
+                                "\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  POR CPF  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("---------------------------------------------------------------------------");
             Console.WriteLine("CPF \t\t Nome           \t\t\tDt.Nasc.      Idade");
@@ -199,8 +199,8 @@ namespace Agenda_Odont
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\n\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ REGISTRO DE PACIENES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n" +
-                                "\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  POR  NOME ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+            Console.WriteLine("\n\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ REGISTRO DE PACIENTES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n" +
+                                "\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ POR  NOME ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("---------------------------------------------------------------------------");
             Console.WriteLine("CPF \t\t Nome           \t\t\tDt.Nasc.      Idade");
@@ -233,8 +233,8 @@ namespace Agenda_Odont
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\n\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ AGENDAMENTO DE PACIENES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n" +
-                                "\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ LISTADO GERAL ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+            Console.WriteLine("\n\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ REGISTRO DE PACIENTES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n" +
+                                "\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  LISTADO GERAL  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("---------------------------------------------------------------------------");
             Console.WriteLine("CPF \t\t Nome           \t\t\tDt.Nasc.      Idade");

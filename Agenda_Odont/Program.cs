@@ -19,8 +19,8 @@ namespace Agenda_Odont
                                   "\t▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ PRINCIPAIS OPÇÕES ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("\n\t\t\t1 - Cadastro de pacientes" +
-                                  "\n\t\t\t2-Agenda" +
-                                  "\n\t\t\t3-Fim");
+                                  "\n\t\t\t2 - Agenda" +
+                                  "\n\t\t\t3 - Fim");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("\n\t\t\tElija su Opcion: ");
                 opcion_prog = Convert.ToString(Console.ReadLine());
